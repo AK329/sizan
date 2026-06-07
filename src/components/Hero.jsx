@@ -1,107 +1,101 @@
 import { motion } from 'framer-motion';
+import { FaGithub, FaDownload } from 'react-icons/fa';
 
 export default function Hero() {
+  const stats = [
+    { value: '8+', label: 'Projects Built' },
+    { value: '6+', label: 'Technologies' },
+    { value: 'CSE', label: 'Undergraduate' },
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center pt-20 px-6">
-      <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center gap-12">
+    <section className="relative min-h-screen flex items-center pt-28 pb-16 px-6">
+      <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
         {/* Left Column: Text Content */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full lg:w-3/5 bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-12 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="w-full lg:w-3/5"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
-          <div className="relative z-10">
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-cyan-400 font-semibold mb-3 tracking-widest uppercase text-sm drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]"
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Available for opportunities
+          </span>
+
+          <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-foreground text-balance">
+            Ashiqul Islam{' '}
+            <span className="text-accent">Sizan</span>
+          </h1>
+
+          <h2 className="mt-5 text-lg md:text-xl text-muted font-medium">
+            CSE Student &middot; Full Stack Web Developer
+          </h2>
+
+          <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-muted text-pretty">
+            I&apos;m a Computer Science and Engineering student focused on full
+            stack web development and software engineering — building clean,
+            practical, and performant products from front to back.
+          </p>
+
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a
+              href="/cv.pdf"
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-7 py-3.5 text-sm font-semibold text-background transition-colors duration-200 hover:bg-accent-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Welcome to my universe
-            </motion.p>
-            
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-4">
-              Ashiqul islam <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]">
-                Sizan
-              </span>
-            </h2>
-            
-            <motion.h3 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="text-xl md:text-2xl text-cyan-100 font-medium mb-6 drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]"
+              <FaDownload className="text-base" />
+              Download CV
+            </a>
+
+            <a
+              href="https://github.com/sizan999"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              CSE Student | Full Stack Web Developer
-            </motion.h3>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
-              className="text-gray-300 max-w-xl leading-relaxed text-lg mb-10"
-            >
-              Hello! I'm Sizan, a passionate Computer Science and Engineering student focused on Full Stack Web Development and Software Engineering.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 }}
-              className="flex flex-wrap gap-5"
-            >
-              <a
-                href="/cv.pdf"
-                download
-                className="relative inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white transition-all duration-200 bg-cyan-500 border border-transparent rounded-xl hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] hover:-translate-y-1"
-              >
-                Download CV
-              </a>
-              
-              <a
-                href="https://github.com/sizan999"
-                target="_blank"
-                rel="noreferrer"
-                className="relative inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-cyan-400 transition-all duration-200 bg-white/5 border border-cyan-500/50 backdrop-blur-md rounded-xl hover:bg-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 shadow-[0_0_10px_rgba(6,182,212,0.2)] hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:-translate-y-1"
-              >
-                View on GitHub
-              </a>
-            </motion.div>
+              <FaGithub className="text-base" />
+              View GitHub
+            </a>
           </div>
+
+          {/* Stats */}
+          <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
+            {stats.map((stat) => (
+              <div key={stat.label} className="border-l border-border pl-4">
+                <dt className="font-display text-2xl md:text-3xl font-bold text-foreground">
+                  {stat.value}
+                </dt>
+                <dd className="mt-1 text-xs uppercase tracking-wide text-muted">
+                  {stat.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </motion.div>
 
         {/* Right Column: Image */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           className="w-full lg:w-2/5 flex justify-center lg:justify-end"
         >
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-2 bg-gradient-to-tr from-cyan-400 to-purple-500 shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:shadow-[0_0_60px_rgba(6,182,212,0.6)] flex-shrink-0"
-          >
-            <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#03001C] bg-[#050024] relative z-10">
-              <img 
-                src="https://github.com/sizan999.png" 
-                alt="Ashiqul islam Sizan" 
-                className="w-full h-full object-cover"
+          <div className="relative w-60 h-60 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem]">
+            <div className="absolute inset-0 rounded-3xl border border-border bg-surface" />
+            <div className="absolute -inset-px rounded-3xl bg-accent/10 blur-2xl" />
+            <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border">
+              <img
+                src="https://github.com/sizan999.png"
+                alt="Portrait of Ashiqul Islam Sizan"
+                className="h-full w-full object-cover"
                 onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = "https://via.placeholder.com/400x400/050024/06b6d4?text=Profile+Image";
+                  e.target.onerror = null;
+                  e.target.src = '/avatar-fallback.png';
                 }}
               />
             </div>
-            
-            {/* Glowing orb decorations */}
-            <div className="absolute -top-6 -right-6 w-20 h-20 bg-purple-500 rounded-full blur-2xl opacity-60 animate-pulse z-0"></div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-500 rounded-full blur-2xl opacity-60 animate-pulse z-0" style={{ animationDelay: '1s' }}></div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

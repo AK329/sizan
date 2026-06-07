@@ -9,7 +9,7 @@ import ThreeDScene from "./components/ThreeDScene";
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#03001C] text-white overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="relative min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       <ThreeDScene />
       <div className="relative z-10">
         <Navbar />

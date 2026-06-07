@@ -2,116 +2,122 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
+  const details = [
+    { icon: <FaEnvelope />, label: 'Email', value: 'sizan12092@gmail.com' },
+    { icon: <FaPhoneAlt />, label: 'Phone', value: '+880 1786 95617' },
+    { icon: <FaMapMarkerAlt />, label: 'Location', value: 'Bangladesh' },
+  ];
+
   return (
     <section id="contact" className="py-24 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <motion.h2 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400"
+          className="text-center mb-14"
         >
-          Contact Me
-        </motion.h2>
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">
+            Contact
+          </p>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
+            Let&apos;s work together
+          </h2>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+        <div className="grid md:grid-cols-2 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden group"
+            className="rounded-3xl border border-border bg-surface p-8"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">Get in Touch</h3>
+            <h3 className="font-display text-xl font-semibold text-foreground">
+              Get in touch
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Have a project in mind or just want to say hello? Feel free to
+              reach out through any of the channels below.
+            </p>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 text-gray-300 hover:text-cyan-400 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <FaEnvelope className="text-xl" />
+            <div className="mt-8 space-y-5">
+              {details.map((item) => (
+                <div key={item.label} className="flex items-center gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 text-accent">
+                    {item.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Email</p>
-                    <p className="font-medium">sizan12092@gmail.com</p>
+                    <p className="text-xs uppercase tracking-wide text-muted">
+                      {item.label}
+                    </p>
+                    <p className="font-medium text-foreground">{item.value}</p>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-4 text-gray-300 hover:text-cyan-400 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <FaPhoneAlt className="text-xl" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Phone</p>
-                    <p className="font-medium">+880178695617</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 text-gray-300 hover:text-cyan-400 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <FaMapMarkerAlt className="text-xl" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Location</p>
-                    <p className="font-medium">Bangladesh</p>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href="https://github.com/sizan999"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 mt-8 bg-cyan-500 text-[#03001C] px-6 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.8)] hover:-translate-y-1"
-              >
-                <FaGithub className="text-xl" />
-                View on GitHub
-              </a>
+              ))}
             </div>
+
+            <a
+              href="https://github.com/sizan999"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-soft"
+            >
+              <FaGithub className="text-base" />
+              View on GitHub
+            </a>
           </motion.div>
 
-          <motion.form 
-            initial={{ opacity: 0, x: 30 }}
+          <motion.form
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col gap-5 relative overflow-hidden group"
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col gap-5 rounded-3xl border border-border bg-surface p-8"
           >
-            <div className="absolute inset-0 bg-gradient-to-tl from-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-            <div className="relative z-10 flex flex-col gap-5">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-5 py-4 rounded-xl bg-[#050024]/50 border border-white/10 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500"
-                />
-              </div>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-5 py-4 rounded-xl bg-[#050024]/50 border border-white/10 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500"
-                />
-              </div>
-
-              <div className="relative">
-                <textarea
-                  rows="5"
-                  placeholder="Your Message"
-                  className="w-full px-5 py-4 rounded-xl bg-[#050024]/50 border border-white/10 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-white placeholder-gray-500 resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 py-4 rounded-xl font-bold hover:from-cyan-400 hover:to-purple-400 transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] hover:-translate-y-1"
-              >
-                Send Message
-              </button>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="text-sm font-medium text-foreground">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                className="w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-foreground placeholder-muted transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              />
             </div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-sm font-medium text-foreground">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                className="w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-foreground placeholder-muted transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="message" className="text-sm font-medium text-foreground">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Tell me about your project..."
+                className="w-full resize-none rounded-xl border border-border bg-surface-2 px-4 py-3 text-foreground placeholder-muted transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-accent-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Send Message
+            </button>
           </motion.form>
         </div>
       </div>

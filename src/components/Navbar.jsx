@@ -7,23 +7,26 @@ export default function Navbar() {
   const menuItems = ['About', 'Skills', 'Projects', 'Contact'];
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-white/5 backdrop-blur-2xl border-b border-white/10 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+      className="fixed top-0 left-0 w-full bg-background/70 backdrop-blur-xl border-b border-border z-50"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
-          Sizan
-        </h1>
+        <a
+          href="#"
+          className="text-xl font-bold font-display tracking-tight text-foreground"
+        >
+          Sizan<span className="text-accent">.</span>
+        </a>
 
-        <ul className="hidden md:flex gap-8 text-sm font-medium">
+        <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
           {menuItems.map((item) => (
             <li key={item}>
-              <a 
-                href={`#${item.toLowerCase()}`} 
-                className="text-gray-300 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all duration-300"
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="text-muted hover:text-foreground transition-colors duration-200"
               >
                 {item}
               </a>
@@ -33,15 +36,17 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-block bg-transparent border border-cyan-500 text-cyan-400 px-5 py-2 rounded-lg font-semibold hover:bg-cyan-500 hover:text-[#03001C] transition-all duration-300 shadow-[0_0_10px_rgba(6,182,212,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]"
+          className="hidden md:inline-flex items-center bg-accent text-background px-5 py-2 rounded-lg text-sm font-semibold hover:bg-accent-soft transition-colors duration-200"
         >
           Hire Me
         </a>
 
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-cyan-400 focus:outline-none"
+        <button
+          className="md:hidden text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isOpen ? (
@@ -56,24 +61,33 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#03001C]/90 backdrop-blur-lg border-b border-cyan-500/20 overflow-hidden"
+            className="md:hidden bg-surface/95 backdrop-blur-lg border-b border-border overflow-hidden"
           >
-            <ul className="flex flex-col items-center py-4 gap-4 text-sm font-medium">
+            <ul className="flex flex-col items-center py-6 gap-5 text-sm font-medium">
               {menuItems.map((item) => (
                 <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`} 
+                  <a
+                    href={`#${item.toLowerCase()}`}
                     onClick={() => setIsOpen(false)}
-                    className="text-gray-300 hover:text-cyan-400 transition-all duration-300"
+                    className="text-muted hover:text-foreground transition-colors duration-200"
                   >
                     {item}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-flex items-center bg-accent text-background px-5 py-2 rounded-lg font-semibold hover:bg-accent-soft transition-colors duration-200"
+                >
+                  Hire Me
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

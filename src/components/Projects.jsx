@@ -48,14 +48,19 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <motion.h2 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400"
+          className="text-center mb-14"
         >
-          My Projects
-        </motion.h2>
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">
+            Work
+          </p>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
+            Selected projects
+          </h2>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projectList.map((proj, idx) => (
